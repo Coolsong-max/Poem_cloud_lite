@@ -1,7 +1,7 @@
 # **诗云 Lite** v0.4
 **_请在运行该程序前阅读本文档_**
 
-屑初中生的第一个原创开源项目（大概），求dalao轻喷qwq  
+屑初中生的第一个原创开源项目（大概），求dalao多多指教qwq  
 原型是刘慈欣科幻小说《诗云》中神写的吟诗软件，参见原文：
 > “我要写出所有的五言和七言诗，这是李白所擅长的；另外我还要写出常见词牌的所有的词！你怎么还不明白？我要在符合这些格律的诗词中，试遍所有汉字的所有组合！”
 
@@ -28,8 +28,8 @@
 ## 使用
 仅需修改以下两行变量数值，即可控制生成的单句字数及单首句数。
 ``` 
-	length = 1  # 单句字数
-    poemSentence = 1  # 每首句数
+length = 1  # 单句字数
+poemSentence = 1  # 每首句数
 ```
 ### ~~*温馨提示*~~
 ~~强烈建议使用Windows自带Notepad打开生成的大文件，喜提（未响应.jpg~~
@@ -37,82 +37,82 @@
 #### 更多玩法
 1. 若要实现从单字开始生成，可将27-28行取消注释：
 ```
-	# alphabet.insert(0, '')
-    # w[0] += 1
+# alphabet.insert(0, '')
+# w[0] += 1
 ```
 效果：
 ```
-	1: 啊，阿。
-	2: 埃，挨。
-	3: 哎，唉。
-	......
-	3383: 啊阿，啊埃。
-	3384: 啊挨，啊哎。
-	3385: 啊唉，啊哀。
+1: 啊，阿。
+2: 埃，挨。
+3: 哎，唉。
+......
+3383: 啊阿，啊埃。
+3384: 啊挨，啊哎。
+3385: 啊唉，啊哀。
 ```
 
 2. 若仅生成单词汇/单句，可将31-46行取消注释：
 ```
-	# word = []
-	# count += 1
-	# for a in range(length):
-	#     m = w[a]
-	#     word.append(alphabet[m])
-	# w[0] += 1
-	#
-	# for i in range(length):
-	#     if w[i] == alpha_len and i + 1 != length:
-	#         w[i] = 0
-	#         w[i + 1] += 1
-	#
-	# word = word[::-1]
-	#
-	# wordStr = ''.join(word)
-	# out = str(count) + ': ' + wordStr + '\n'
+# word = []
+# count += 1
+# for a in range(length):
+#     m = w[a]
+#     word.append(alphabet[m])
+# w[0] += 1
+#
+# for i in range(length):
+#     if w[i] == alpha_len and i + 1 != length:
+#         w[i] = 0
+#         w[i + 1] += 1
+#
+# word = word[::-1]
+#
+# wordStr = ''.join(word)
+# out = str(count) + ': ' + wordStr + '\n'
 ```
 同时注释48-66行：
 ```
-	poem = []
-	count += 1
-	for p in range(poemSentence):
-		word = []
-		for a in range(length):
-			m = w[a]
-			word.append(alphabet[m])
-		w[0] += 1
+poem = []
+count += 1
+for p in range(poemSentence):
+	word = []
+	for a in range(length):
+		m = w[a]
+		word.append(alphabet[m])
+	w[0] += 1
 
-		for i in range(length):
-			if w[i] == alpha_len and i + 1 != length:
-				w[i] = 0
-				w[i + 1] += 1
+	for i in range(length):
+		if w[i] == alpha_len and i + 1 != length:
+			w[i] = 0
+			w[i + 1] += 1
 
-		wordStr = ''.join(word[::-1])
-		poem.append(wordStr)
+	wordStr = ''.join(word[::-1])
+	poem.append(wordStr)
 
-	poemStr = '，'.join(poem)
-	out = str(count) + ': ' + poemStr + '。\n'
+poemStr = '，'.join(poem)
+out = str(count) + ': ' + poemStr + '。\n'
 ```
 此时变量``` poemSentence ```无效。  
 效果：
 ```
-	1: 啊啊啊啊啊
-	2: 啊啊啊啊阿
-	3: 啊啊啊啊埃
-	......
-	45521: 啊啊啊哀滠
-	45522: 啊啊啊哀漭
-	45523: 啊啊啊哀滢
+1: 啊啊啊啊啊
+2: 啊啊啊啊阿
+3: 啊啊啊啊埃
+......
+45521: 啊啊啊哀滠
+45522: 啊啊啊哀漭
+45523: 啊啊啊哀滢
 ```
 
 3. 同时使用1和2可以实现以下效果：
 ```
-	1: 啊
-	......
-	6758: 鼯
-	6759: 鼹
-	......
-	6764: 啊啊
-	6765: 啊阿
+1: 啊
+......
+6758: 鼯
+6759: 鼹
+......
+6764: 啊啊
+6765: 啊阿
 ```
 ~~天底下所有的汉字组合都被我生成啦啊哈哈哈（不是~~  
 
@@ -121,9 +121,9 @@
 没有格式！纯文本就行啦  
 ~~是的，你甚至可以用英文写诗~~
 ```
-	1: aaaaa，aaaab。
-	2: aaaac，aaaad。
-	3: aaaae，aaaaf。
+1: aaaaa，aaaab。
+2: aaaac，aaaad。
+3: aaaae，aaaaf。
 ```
 
 ## Todo List
